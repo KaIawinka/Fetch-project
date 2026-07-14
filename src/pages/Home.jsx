@@ -29,7 +29,7 @@ function Home() {
 			<main className={styles.card}>
 				<span className={styles.badge}>Добро пожаловать</span>
 				<h1 className={styles.title}>Home</h1>
-				<p className={styles.subtitle}>
+				<div className={styles.subtitle}>
 					{
 						list.map((item) => (
 							<div key={item.id}>
@@ -37,7 +37,7 @@ function Home() {
 							</div>
 						))
 					}
-				</p>
+				</div>
 
 				<div className={styles.badge} style={{borderRadius: "5px"}}>
 					<h1>{count}</h1>
