@@ -1,0 +1,106 @@
+.wrapper {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #0a0a12;
+	overflow: hidden;
+	padding: 24px;
+}
+
+.glow {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background: radial-gradient(circle, rgba(124, 58, 237, 0.35) 0%, rgba(56, 189, 248, 0.15) 45%, transparent 70%);
+	filter: blur(60px);
+	top: -150px;
+	left: 50%;
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+.card {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 480px;
+	padding: 48px 40px;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 20px;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+	text-align: center;
+}
+
+.badge {
+	display: inline-block;
+	padding: 6px 14px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: #a78bfa;
+	background: rgba(167, 139, 250, 0.12);
+	border: 1px solid rgba(167, 139, 250, 0.3);
+	border-radius: 999px;
+	margin-bottom: 20px;
+}
+
+.title {
+	font-size: 42px;
+	font-weight: 700;
+	color: #f5f5f7;
+	margin: 0 0 12px;
+	letter-spacing: -0.5px;
+}
+
+.subtitle {
+	font-size: 15px;
+	color: rgba(245, 245, 247, 0.6);
+	line-height: 1.6;
+	margin: 0 0 32px;
+}
+
+.actions {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.primaryBtn {
+	padding: 12px 28px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #0a0a12;
+	background: linear-gradient(135deg, #a78bfa, #38bdf8);
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryBtn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+}
+
+.secondaryBtn {
+	padding: 12px 28px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #f5f5f7;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.secondaryBtn:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
