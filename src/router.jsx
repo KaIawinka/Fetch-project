@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/layout";
 import Posts from "./pages/Posts";
 import Photos from "./pages/Photos";
+import Profile from "./pages/Profile";
 
 const myRouter = createBrowserRouter([
 	{
@@ -26,6 +27,10 @@ const myRouter = createBrowserRouter([
 			{
 				path: "/Photos",
 				element: <Photos />
+			},
+			{
+				path: "/Profile",
+				element: <Profile />
 			},
 			{
 				path: "*",
