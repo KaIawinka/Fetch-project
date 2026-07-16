@@ -9,9 +9,9 @@ function Header() {
 			<Link to="/About">About</Link>
 			<Link to="/Posts">Posts</Link>
 			<Link to="/Photos">Photos</Link>
+			<Link to="/Profile">Profile</Link>
 		</header>
 	)
 }
 
 export default Header
-
