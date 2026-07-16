@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Card.module.css'
+import { Link } from 'react-router-dom'
 
 function Card({ product }) {
 	const { thumbnail, title, description, category, price, rating } = product
@@ -16,7 +17,9 @@ function Card({ product }) {
 			</div>
 			<div className={styles.actions}>
 				<button className={styles.primaryBtn}>Купить</button>
-				<button className={styles.secondaryBtn}>Подробнее</button>
+				<Link to={`/detail/${product.id}`}>
+					<button className={styles.secondaryBtn}>Подробнее</button>
+				</Link>
 			</div>
 		</div>
 	)
