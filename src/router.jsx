@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/layout";
+import Posts from "./pages/Posts";
+import Photos from "./pages/Photos";
 
 const myRouter = createBrowserRouter([
 	{
@@ -16,6 +18,14 @@ const myRouter = createBrowserRouter([
 			{
 				path: "/About",
 				element: <About />
+			},
+			{
+				path: "/Posts",
+				element: <Posts />
+			},
+			{
+				path: "/Photos",
+				element: <Photos />
 			},
 			{
 				path: "*",
