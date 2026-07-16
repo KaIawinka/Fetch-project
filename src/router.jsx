@@ -6,6 +6,7 @@ import Layout from "./components/layout/layout";
 import Posts from "./pages/Posts";
 import Photos from "./pages/Photos";
 import Profile from "./pages/Profile";
+import Detail from "./pages/Detail";
 
 const myRouter = createBrowserRouter([
 	{
@@ -36,6 +37,10 @@ const myRouter = createBrowserRouter([
 				path: "*",
 				element: <NotFound />
 			},
+			{
+				path: "/Detail",
+				element: <Detail/>
+			}
 		]
 	}
 ])
