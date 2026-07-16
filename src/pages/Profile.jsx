@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.css";
+import Card from "../components/Card/Card";
 
 const productsAPI = "https://dummyjson.com/products";
 
@@ -34,26 +35,11 @@ function Profile() {
 				{error && <p className={styles.status}>{error}</p>}
 
 				<div className={styles.grid}>
-					{list.map((product) => (
-						<div className={styles.card} key={product.id}>
-							<img
-								src={product.thumbnail}
-								alt={product.title}
-								className={styles.cardImage}
-							/>
-							<span className={styles.badge}>{product.category}</span>
-							<h3 className={styles.cardTitle}>{product.title}</h3>
-							<p className={styles.cardText}>{product.description}</p>
-							<div className={styles.priceRow}>
-								<span className={styles.price}>${product.price}</span>
-								<span className={styles.rating}>★ {product.rating}</span>
-							</div>
-							<div className={styles.actions}>
-								<button className={styles.primaryBtn}>Купить</button>
-								<button className={styles.secondaryBtn}>Подробнее</button>
-							</div>
-						</div>
-					))}
+					<div className={styles.grid}>
+						{list.map((product) => (
+							<Card key={product.id} product={product} />
+						))}
+					</div>
 				</div>
 			</div>
 		</div>
