@@ -12,7 +12,7 @@ function Profile() {
 	async function getProducts() {
 		try {
 			setLoading(true);
-			const res = await fetch(productsAPI);
+			const res = await fetch(`${productsAPI}`);
 			const data = await res.json();
 			setList(data.products);
 		} catch (error) {
@@ -27,8 +27,24 @@ function Profile() {
 		getProducts();
 	}, []);
 
+	const [search, serSearch] = useState("")
+
 	return (
 		<div className={styles.wrapper}>
+		<div>
+			<input
+				type="text" 
+				placeholder="поиск"
+				value={search}
+				onChange={(e) => setSearch(e.target.value)}
+				style={{
+					padding: "20px 10px",
+					borderRadius: "20px",
+					background: "black",
+					border: "1px solid grey"
+				}}
+			/>
+		</div>
 
 			<div className={styles.content}>
 				{loading && <p className={styles.status}>Загрузка...</p>}
