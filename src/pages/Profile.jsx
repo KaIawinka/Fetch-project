@@ -8,11 +8,12 @@ function Profile() {
 	const [list, setList] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [search, setSearch] = useState("")
 
 	async function getProducts() {
 		try {
 			setLoading(true);
-			const res = await fetch(`${productsAPI}`);
+			const res = await fetch(`${productsAPI}/search?q=${search}`);
 			const data = await res.json();
 			setList(data.products);
 		} catch (error) {
@@ -25,9 +26,7 @@ function Profile() {
 
 	useEffect(() => {
 		getProducts();
-	}, []);
-
-	const [search, serSearch] = useState("")
+	}, [search]);
 
 	return (
 		<div className={styles.wrapper}>
@@ -41,7 +40,8 @@ function Profile() {
 					padding: "20px 10px",
 					borderRadius: "20px",
 					background: "black",
-					border: "1px solid grey"
+					border: "1px solid grey",
+					color: "white"
 				}}
 			/>
 		</div>
