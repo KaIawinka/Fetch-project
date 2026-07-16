@@ -41,6 +41,10 @@ const myRouter = createBrowserRouter([
 				path: "*",
 				element: <NotFound />
 			},
+			{
+				path: "/Detail",
+				element: <Detail/>
+			}
 		]
 	}
 ])
