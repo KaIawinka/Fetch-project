@@ -20,59 +20,90 @@ function Photos() {
 	}, []);
 
 	return (
-		<div style={{
-			display: "grid",
-			gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-			gap: 20,
-			maxWidth: 1600,
-			margin: "0 auto",
-			padding: "24px 16px",
-			fontFamily:
-				"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-		}}>
-			{list.map((photo) => (
-				<div
-					key={photo.id}
-					style={{
-									display: "flex",
-									flexDirection: "column",
-									background: "#ffffff",
-									border: "1px solid #e5e5e5",
-									borderRadius: 12,
-									padding: "20px",
-									boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
-									background: "#fffde0"
-								}}
-				>
-					<img
-						src={photo.title}
-						alt={photo.title}
-						style={{
-										margin: "0 0 10px",
-										fontSize: 17,
-										fontWeight: 600,
-										lineHeight: 1.35,
-										color: "#1a1a1a",
-										textTransform: "capitalize",
-									}}
-					/>
-					<p style={{
-											margin: 0,
-											fontSize: 14,
-											lineHeight: 1.65,
-											color: "#5a5a5a",
-											display: "-webkit-box",
-											WebkitLineClamp: 4,
-											WebkitBoxOrient: "vertical",
-											overflow: "hidden",
-										}}
+		<div style={styles.wrapper}>
+			<div style={styles.grid}>
+				{list.map((photo) => (
+					<div
+						key={photo.id}
+						style={styles.card}
+						onMouseEnter={(e) => {
+							e.currentTarget.style.transform = "translateY(-4px)";
+							e.currentTarget.style.boxShadow =
+								"0 8px 32px rgba(167, 139, 250, 0.25)";
+							e.currentTarget.style.borderColor =
+								"rgba(167, 139, 250, 0.3)";
+						}}
+						onMouseLeave={(e) => {
+							e.currentTarget.style.transform = "translateY(0)";
+							e.currentTarget.style.boxShadow =
+								"0 8px 32px rgba(0, 0, 0, 0.4)";
+							e.currentTarget.style.borderColor =
+								"rgba(255, 255, 255, 0.12)";
+						}}
 					>
-						{photo.title}
-					</p>
-				</div>
-			))}
+						<img
+							src={photo.thumbnailUrl}
+							alt={photo.title}
+							style={styles.image}
+						/>
+						<p style={styles.text}>{photo.title}</p>
+					</div>
+				))}
+			</div>
 		</div>
-	)
+	);
 }
 
-export default Photos
+const styles = {
+	wrapper: {
+		position: "relative",
+		minHeight: "100vh",
+		background: "#0a0a12",
+		overflow: "hidden",
+		padding: "24px",
+		fontFamily:
+			"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+	},
+	grid: {
+		position: "relative",
+		zIndex: 1,
+		display: "grid",
+		gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+		gap: 20,
+		maxWidth: 1600,
+		margin: "0 auto",
+	},
+	card: {
+		display: "flex",
+		flexDirection: "column",
+		background: "rgba(255, 255, 255, 0.06)",
+		border: "1px solid rgba(255, 255, 255, 0.12)",
+		borderRadius: 20,
+		padding: "16px",
+		backdropFilter: "blur(20px)",
+		WebkitBackdropFilter: "blur(20px)",
+		boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+		transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+	},
+	image: {
+		width: "100%",
+		height: 180,
+		objectFit: "cover",
+		borderRadius: 12,
+		marginBottom: 12,
+		border: "1px solid rgba(255, 255, 255, 0.08)",
+	},
+	text: {
+		margin: 0,
+		fontSize: 14,
+		lineHeight: 1.65,
+		color: "rgba(245, 245, 247, 0.7)",
+		display: "-webkit-box",
+		WebkitLineClamp: 3,
+		WebkitBoxOrient: "vertical",
+		overflow: "hidden",
+		textTransform: "capitalize",
+	},
+};
+
+export default Photos;
