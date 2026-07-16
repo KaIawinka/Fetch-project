@@ -29,7 +29,7 @@ function Profile() {
 
 	return (
 		<div className={styles.wrapper}>
-
+			
 			<div className={styles.content}>
 				{loading && <p className={styles.status}>Загрузка...</p>}
 				{error && <p className={styles.status}>{error}</p>}
