@@ -7,6 +7,8 @@ function Header() {
 		<header>
 			<Link to="/">Home</Link>
 			<Link to="/About">About</Link>
+			<Link to="/Posts">Posts</Link>
+			<Link to="/Photos">Photos</Link>
 		</header>
 	)
 }
