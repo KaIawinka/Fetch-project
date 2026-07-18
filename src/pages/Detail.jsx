@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Detail.css'
+import {Link} from "react-router-dom"
 
 const productsAPI = "https://dummyjson.com/products";
 
@@ -83,7 +84,9 @@ function Detail() {
 						)}
 					</div>
 
-					<button className="detail-buy-btn">Добавить в корзину</button>
+					<Link to="/Profile" className="detail-buy-btn">
+						Назад
+					</Link>
 				</div>
 			</div>
 		</div>
