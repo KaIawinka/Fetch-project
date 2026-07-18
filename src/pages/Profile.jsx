@@ -30,21 +30,21 @@ function Profile() {
 
 	return (
 		<div className={styles.wrapper}>
-		<div>
-			<input
-				type="text" 
-				placeholder="поиск"
-				value={search}
-				onChange={(e) => setSearch(e.target.value)}
-				style={{
-					padding: "20px 10px",
-					borderRadius: "20px",
-					background: "black",
-					border: "1px solid grey",
-					color: "white"
-				}}
-			/>
-		</div>
+			<div>
+				<input
+					type="text" 
+					placeholder="поиск"
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+					style={{
+						padding: "20px 10px",
+						borderRadius: "20px",
+						background: "black",
+						border: "1px solid grey",
+						color: "white"
+					}}
+				/>
+			</div>
 
 			<div className={styles.content}>
 				{loading && <p className={styles.status}>Загрузка...</p>}
@@ -52,9 +52,12 @@ function Profile() {
 
 				<div className={styles.grid}>
 					<div className={styles.grid}>
-						{list.map((product) => (
-							<Card key={product.id} product={product} />
-						))}
+						{list.length > 0 ? list.map((item) => (
+								<Card key={item.id} product={item} />
+							)) : (
+								<p className={styles.status}>Товары не найдены</p>
+							)
+						}
 					</div>
 				</div>
 			</div>
