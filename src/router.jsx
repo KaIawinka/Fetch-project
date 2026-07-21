@@ -7,6 +7,7 @@ import Posts from "./pages/Posts";
 import Photos from "./pages/Photos";
 import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
+import Contact from "./pages/Contact";
 
 const myRouter = createBrowserRouter([
 	{
@@ -44,6 +45,10 @@ const myRouter = createBrowserRouter([
 			{
 				path: "/Detail",
 				element: <Detail/>
+			},
+			{
+				path: "/Contact",
+				element: <Contact/>
 			}
 		]
 	}
