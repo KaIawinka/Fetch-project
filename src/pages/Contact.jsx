@@ -112,6 +112,7 @@ function Contact() {
 				.del-btn { transition: background 0.2s ease, color 0.2s ease; }
 				.del-btn:hover { background: #B5473A !important; color: #fff !important; }
 				.spin { animation: spin 0.8s linear infinite; }
+				.catalog-toolbar { flex-wrap: wrap; }
 				@keyframes spin { to { transform: rotate(360deg); } }
 				@media (max-width: 640px) {
 					.catalog-toolbar { flex-direction: column !important; align-items: stretch !important; }
