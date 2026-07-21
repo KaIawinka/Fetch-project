@@ -65,7 +65,6 @@ function Contact() {
 	}
 	
 	function deleteAllProducts() {
-		if (!window.confirm("Are you sure you want to delete all items?")) return
 		setDeletingId("all")
 		Promise.all(list.map((item) => fetch(`${API}/${item.id}`, { method: "DELETE" })))
 			.then(() => {
@@ -82,6 +81,9 @@ function Contact() {
 		})
 			.then((res) => res.json())
 			.then((updatedItem) => {
+				if (trim(updatedData.title) === "" || trim(updatedData.category) === "" || trim(updatedData.avatar) === "") {
+					return
+				}
 				setList(list.map((item) => (item.id === id ? updatedItem : item)))
 				setData({ title: "", category: "", avatar: "" })
 			})
