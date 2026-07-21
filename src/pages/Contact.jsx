@@ -74,16 +74,20 @@ function Contact() {
 	}
 
 	function updateProduct(id, updatedData) {
+		const currentItem = list.find((item) => item.id === id)
+		const mergedData = {
+			...currentItem,
+			title: updatedData.title.trim() !== "" ? updatedData.title : currentItem.title,
+			category: updatedData.category.trim() !== "" ? updatedData.category : currentItem.category,
+			avatar: updatedData.avatar.trim() !== "" ? updatedData.avatar : currentItem.avatar,
+		}
 		fetch(`${API}/${id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(updatedData),
+			body: JSON.stringify(mergedData),
 		})
 			.then((res) => res.json())
 			.then((updatedItem) => {
-				if (trim(updatedData.title) === "" || trim(updatedData.category) === "" || trim(updatedData.avatar) === "") {
-					return
-				}
 				setList(list.map((item) => (item.id === id ? updatedItem : item)))
 				setData({ title: "", category: "", avatar: "" })
 			})
